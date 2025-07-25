@@ -99,7 +99,7 @@ async def register_user(user: UserCreate):
         "email": user.email,
         "name": user.name,
         "password": user.password,  # In production, hash this
-        "created_at": datetime.utcnow()
+        "created_at": datetime.utcnow().isoformat()
     }
     
     db.users.insert_one(user_data)
