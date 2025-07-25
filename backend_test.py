@@ -89,11 +89,15 @@ class FitSnapAPITester:
         """Test duplicate user registration"""
         try:
             user_data = {
-                "email": "sarah.johnson@example.com",  # Same email as before
+                "email": f"sarah.johnson.{str(int(__import__('time').time()))}@example.com",  # Same email as before
                 "name": "Sarah Johnson",
                 "password": "SecurePass123!"
             }
             
+            # Register first time
+            self.session.post(f"{API_BASE}/users/register", json=user_data)
+            
+            # Try to register again with same email
             response = self.session.post(f"{API_BASE}/users/register", json=user_data)
             
             if response.status_code == 400:
