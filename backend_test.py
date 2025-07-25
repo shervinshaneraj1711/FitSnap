@@ -144,7 +144,7 @@ class FitSnapAPITester:
         """Test login with invalid credentials"""
         try:
             login_data = {
-                "email": "sarah.johnson@example.com",
+                "email": self.test_user_email or "sarah.johnson@example.com",
                 "password": "WrongPassword123!"
             }
             
