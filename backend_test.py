@@ -118,7 +118,7 @@ class FitSnapAPITester:
         """Test POST /api/users/login"""
         try:
             login_data = {
-                "email": "sarah.johnson@example.com",
+                "email": self.test_user_email or "sarah.johnson@example.com",
                 "password": "SecurePass123!"
             }
             
