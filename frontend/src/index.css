@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-dark-950 text-white font-['Inter',sans-serif];
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
