@@ -234,7 +234,7 @@ async def get_size_recommendations(user_id: str):
                 "category": "Shirts",
                 "recommended_size": "M",
                 "confidence": 0.92,
-                "created_at": datetime.utcnow()
+                "created_at": datetime.utcnow().isoformat()
             },
             {
                 "id": str(uuid.uuid4()),
@@ -243,7 +243,7 @@ async def get_size_recommendations(user_id: str):
                 "category": "Jeans",
                 "recommended_size": "32",
                 "confidence": 0.88,
-                "created_at": datetime.utcnow()
+                "created_at": datetime.utcnow().isoformat()
             },
             {
                 "id": str(uuid.uuid4()),
@@ -252,7 +252,7 @@ async def get_size_recommendations(user_id: str):
                 "category": "T-Shirts",
                 "recommended_size": "L",
                 "confidence": 0.85,
-                "created_at": datetime.utcnow()
+                "created_at": datetime.utcnow().isoformat()
             }
         ]
         return placeholder_recs
