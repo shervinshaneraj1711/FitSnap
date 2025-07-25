@@ -175,7 +175,7 @@ async def upload_body_images(
         "shoulder_width": 42.0,
         "arm_length": 61.0,
         "leg_length": 84.0,
-        "created_at": datetime.utcnow()
+        "created_at": datetime.utcnow().isoformat()
     }
     
     db.measurements.insert_one(measurements)
