@@ -163,6 +163,9 @@ async def upload_body_images(
     
     db.image_uploads.insert_one(upload_data)
     
+    # Remove MongoDB _id from upload_data before using in response
+    upload_data_copy = upload_data.copy()
+    
     # Simulate processing and generate placeholder measurements
     measurements = {
         "id": str(uuid.uuid4()),
@@ -185,7 +188,7 @@ async def upload_body_images(
     
     return {
         "message": "Images uploaded and processed successfully",
-        "upload_id": upload_data["id"],
+        "upload_id": upload_data_copy["id"],
         "measurements": measurements_copy
     }
 
