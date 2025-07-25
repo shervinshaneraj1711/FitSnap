@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-dark-950 text-white font-['Inter',sans-serif];
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  .btn-neon {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105;
+    @apply bg-gradient-to-r from-neon-blue to-neon-purple;
+    @apply hover:shadow-lg hover:shadow-neon-blue/25;
+    @apply focus:outline-none focus:ring-2 focus:ring-neon-blue focus:ring-offset-2 focus:ring-offset-dark-950;
+  }
+  
+  .btn-neon-outline {
+    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105;
+    @apply border-2 border-neon-blue bg-transparent text-neon-blue;
+    @apply hover:bg-neon-blue hover:text-dark-950;
+    @apply focus:outline-none focus:ring-2 focus:ring-neon-blue focus:ring-offset-2 focus:ring-offset-dark-950;
+  }
+  
+  .card-neon {
+    @apply bg-dark-900/50 backdrop-blur-sm border border-dark-700 rounded-xl p-6;
+    @apply hover:border-neon-blue/50 transition-all duration-300;
+    @apply shadow-lg hover:shadow-xl hover:shadow-neon-blue/10;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-neon-blue via-neon-purple to-neon-teal bg-clip-text text-transparent;
+  }
+  
+  .nav-link {
+    @apply text-dark-300 hover:text-neon-blue transition-colors duration-300 relative;
+  }
+  
+  .nav-link:hover::after {
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-neon-blue;
+    content: '';
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-link::after {
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-neon-blue;
+    content: '';
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Floating particles background */
+.particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #00d4ff;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.particle:nth-child(2n) {
+  background: #8b5cf6;
+  animation-delay: -2s;
+}
+
+.particle:nth-child(3n) {
+  background: #06b6d4;
+  animation-delay: -4s;
+}
+
+.particle:nth-child(4n) {
+  background: #10b981;
+  animation-delay: -6s;
+}
