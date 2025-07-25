@@ -180,10 +180,13 @@ async def upload_body_images(
     
     db.measurements.insert_one(measurements)
     
+    # Remove MongoDB _id from measurements before returning
+    measurements_copy = measurements.copy()
+    
     return {
         "message": "Images uploaded and processed successfully",
         "upload_id": upload_data["id"],
-        "measurements": measurements
+        "measurements": measurements_copy
     }
 
 @app.get("/api/measurements/{user_id}")
