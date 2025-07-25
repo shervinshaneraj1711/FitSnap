@@ -161,10 +161,8 @@ async def upload_body_images(
         "created_at": datetime.utcnow().isoformat()
     }
     
-    db.image_uploads.insert_one(upload_data)
-    
-    # Remove MongoDB _id from upload_data before using in response
-    upload_data_copy = upload_data.copy()
+    # Insert a copy to avoid MongoDB modifying the original
+    db.image_uploads.insert_one(upload_data.copy())
     
     # Simulate processing and generate placeholder measurements
     measurements = {
@@ -181,15 +179,13 @@ async def upload_body_images(
         "created_at": datetime.utcnow().isoformat()
     }
     
-    db.measurements.insert_one(measurements)
-    
-    # Remove MongoDB _id from measurements before returning
-    measurements_copy = measurements.copy()
+    # Insert a copy to avoid MongoDB modifying the original
+    db.measurements.insert_one(measurements.copy())
     
     return {
         "message": "Images uploaded and processed successfully",
-        "upload_id": upload_data_copy["id"],
-        "measurements": measurements_copy
+        "upload_id": upload_data["id"],
+        "measurements": measurements
     }
 
 @app.get("/api/measurements/{user_id}")
