@@ -36,7 +36,7 @@ const TryOn = () => {
       description: 'No waiting time - instantly preview any outfit with a single click'
     },
     {
-      icon: Magic,
+      icon: Wand2,
       title: 'Perfect Fit Preview',
       description: 'Visualize how different sizes will fit based on your measurements'
     }
