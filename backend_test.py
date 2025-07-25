@@ -350,13 +350,14 @@ class FitSnapAPITester:
     def test_virtual_tryon(self):
         """Test POST /api/virtual-tryon"""
         try:
-            tryon_data = {
+            # Send as query parameters instead of JSON body
+            params = {
                 "user_id": self.test_user_id or "demo-user",
                 "item_id": "shirt-001",
                 "brand": "Zara"
             }
             
-            response = self.session.post(f"{API_BASE}/virtual-tryon", json=tryon_data)
+            response = self.session.post(f"{API_BASE}/virtual-tryon", params=params)
             
             if response.status_code == 200:
                 data = response.json()
