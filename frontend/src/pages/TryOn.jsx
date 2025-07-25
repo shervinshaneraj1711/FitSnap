@@ -8,7 +8,7 @@ import {
   ArrowRight,
   Zap,
   Eye,
-  Magic,
+  Wand2,
   Camera
 } from 'lucide-react'
 
