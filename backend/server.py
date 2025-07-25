@@ -158,7 +158,7 @@ async def upload_body_images(
         "front_image": front_b64,
         "side_image": side_b64,
         "status": "processing",
-        "created_at": datetime.utcnow()
+        "created_at": datetime.utcnow().isoformat()
     }
     
     db.image_uploads.insert_one(upload_data)
