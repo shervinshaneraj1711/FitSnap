@@ -62,8 +62,10 @@ class FitSnapAPITester:
     def test_user_registration(self):
         """Test POST /api/users/register"""
         try:
+            import time
+            unique_id = str(int(time.time()))
             user_data = {
-                "email": "sarah.johnson@example.com",
+                "email": f"sarah.johnson.{unique_id}@example.com",
                 "name": "Sarah Johnson",
                 "password": "SecurePass123!"
             }
