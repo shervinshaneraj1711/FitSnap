@@ -77,6 +77,7 @@ class FitSnapAPITester:
                 data = response.json()
                 if "user_id" in data and "message" in data:
                     self.test_user_id = data["user_id"]
+                    self.test_user_email = user_data["email"]  # Store email for login test
                     self.log_result("User Registration", True, "User registered successfully", data)
                 else:
                     self.log_result("User Registration", False, f"Missing required fields in response: {data}")
