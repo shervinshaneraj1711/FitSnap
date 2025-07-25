@@ -20,6 +20,7 @@ class FitSnapAPITester:
     def __init__(self):
         self.session = requests.Session()
         self.test_user_id = None
+        self.test_user_email = None
         self.test_brand_id = None
         self.results = []
         
